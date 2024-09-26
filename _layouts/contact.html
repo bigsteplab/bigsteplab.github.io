@@ -1,0 +1,135 @@
+---
+layout: default
+bodyClass: "page-contact"
+---
+
+<div class="intro">
+  <div class="container">
+    <div class="row justify-content-start">
+      <div class="col-12 col-md-7 col-lg-8 order-2 order-md-1">
+        {{ content }}
+      </div>
+      {% if page.intro_image %}
+      <div class="col-12 col-md-5 col-lg-4 order-1 order-md-2 position-relative" {% if page.intro_image_top %} style="top: {{ page.intro_image_top }};" {% endif %}>
+        <img
+          alt={{ page.title }}
+          class="intro-image{% if page.intro_image_absolute %} intro-image-absolute{% endif %}{% if page.intro_image_hide_on_mobile %} intro-image-hide-mobile{% endif %}"
+          src="{{ page.intro_image | relative_url }}"
+          {% if page.intro_image_max_width %} style="max-width: {{ page.intro_image_max_width }};" {% endif %}
+        />
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="container pb-3 pb-md-5">
+  <div class="row justify-content-start">
+    <div class="col-12 col-md-12">
+      <div class="service service-single">
+
+        {% include call.html show_button=false %}
+
+        <div class="card bg-light px-3 py-2 mt-3 position-relative">
+          <div class="card-body">
+            <h2 class="card-title mb-3"><i class="fa-solid fa-headset"></i> 상담 문의</h2>
+            <form id="contact-form" class="needs-validation" novalidate>
+              <div class="mb-3">
+                <label for="name" class="form-label">이름 (필수)</label>
+                <input type="text" class="form-control" id="name" name="name" maxlength="32" placeholder="이름을 입력해주세요." required>
+                <div class="invalid-feedback">
+                  이름을 입력해주세요.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">이메일 (필수)</label>
+                <input type="email" class="form-control" id="email" name="email" maxlength="32" placeholder="이메일을 입력해주세요." required>
+                <div class="invalid-feedback">
+                  올바른 이메일 주소를 입력해주세요.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">전화번호</label>
+                <input type="text" class="form-control" id="phone" name="phone" maxlength="16" placeholder="전화번호를 입력해주세요.">
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">내용 (필수)</label>
+                <textarea class="form-control" id="message" name="message" maxlength="512" placeholder="내용을 입력해주세요." rows="8"
+                  required></textarea>
+                <div class="invalid-feedback">
+                  내용을 입력해주세요.
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary py-1 px-4">보내기</button>
+            </form>
+          </div>
+          <p id="status" class="status-message" style="opacity: 0; visibility: hidden;">처리 중입니다.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container pb-3 pb-md-5">
+  <div class="row justify-content-start">
+    <div class="col-12 col-md-12 text-end" style="opacity: 0.5;">
+      and all illustrations are from <a href="https://storyset.com/people" target="_blank">People illustrations by Storyset</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    this.classList.add('was-validated');
+
+    let formData = new FormData(this);
+
+    // check all required fields are filled
+    if (!this.checkValidity()) {
+      alert('필요한 정보를 모두 입력해주세요.');
+      return;
+    }
+
+    // wait message
+    const statusElement = document.getElementById('status');
+    statusElement.innerText = '전송 중...';
+    statusElement.style.backgroundColor = 'rgba(44, 44, 44, 0.9)';
+    statusElement.classList.add('show');
+
+    fetch('https://script.google.com/macros/s/AKfycbzLP-FlgT_T-8em9rtN9HXTXNojhPVIcyi0UTOZ62G-KzHVBqTMSeFOoRorklBZFsYLNQ/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    })
+      .then(response => response.text())
+      .then(data => {
+        this.classList.remove('was-validated');
+        const statusElement = document.getElementById('status');
+        statusElement.innerText = '문의를 전송했습니다. 확인 후 연락드리겠습니다.';
+        statusElement.style.backgroundColor = 'rgba(40, 167, 69, 0.9)';
+        statusElement.classList.add('show');
+
+        // Hide the message after 3 seconds (3000ms)
+        setTimeout(() => {
+          statusElement.classList.remove('show');
+        }, 3000);
+
+        // Clear the form
+        document.getElementById('contact-form').reset();
+      })
+      .catch(error => {
+        const statusElement = document.getElementById('status');
+        statusElement.innerText = '문의를 전송하는데 실패했습니다: ' + error;
+        statusElement.style.backgroundColor = 'rgba(220, 53, 69, 0.9)';
+        statusElement.classList.add('show');
+
+        // Hide the message after 3 seconds (3000ms)
+        setTimeout(() => {
+          statusElement.classList.remove('show');
+        }, 3000);
+      });
+  });
+</script>
