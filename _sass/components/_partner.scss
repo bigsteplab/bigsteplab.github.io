@@ -1,0 +1,27 @@
+.partner {
+  height: 100%;
+  border: 1px solid $white-offset;
+  border-radius: 3px;
+  padding: 20px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  .partner-image {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: fit-content;
+    height: 40px;
+    display: flex;
+    margin-bottom: 20px;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .partner-name {
+  }
+  .partner-content {
+    margin-bottom: 0;
+    margin-top: auto;
+  }
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "서울특별시립노원시각장애인복지관",
+    "description": "",
+    "image": {
+      "url": "images/partners/nowonblind.png"
+    }
+  },
+  {
+    "name": "한국시각장애인연합회",
+    "description": "",
+    "image": {
+      "url": "images/partners/kbuwel.png"
+    }
+  },
+  {
+    "name": "실로암시각장애인복지관",
+    "description": "",
+    "image": {
+      "url": "images/partners/silwel.png"
+    }
+  },
+  {
+    "name": "재단법인행복아이씨티",
+    "description": "",
+    "image": {
+      "url": "images/partners/happyict.png"
+    }
+  }
+]
