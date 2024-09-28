@@ -7,7 +7,7 @@ weight: 3
 
 비즈니스 모델에 최적화된 ARS(IVR) 시스템 개발/운영
 
-## 행복을 들려주는 도서관 ARS 버전
+## 행복을 들려주는 도서관 ARS 버전 (소리샘, 02-2092-9000)
 
 <div class="d-block text-center"><img src="/images/services/ars/voice-chat-pana.svg" alt="ARS(IVR) 시스템 개발" style=" width: 500px;"  /></div>
 
