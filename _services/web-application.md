@@ -26,3 +26,14 @@ weight: 1
 
 - 자원봉사자 모집 및 검수 관리 
 - 도시각장애인을 위한 도서 제공을 위해, 자원봉사자의 도서 입력부터 Daisy 포맷 변환 및 배포까지의 전 과정을 아우르는 파이프라인 구현
+
+---
+
+
+## 소리샘, 시각장애인을 위한 정보 통신망
+<img class="d-inline-block me-3 rounded mb-0 border shadow" src="/images/services/web/sorisem-1.png" alt="소리샘 #1" style="width: 300px;" />
+<img class="d-inline-block me-3 rounded mb-0 border shadow" src="/images/services/web/sorisem-2.png" alt="소리샘 #2" style="width: 300px;" />
+<img class="d-inline-block me-3 rounded mb-0 border shadow" src="/images/services/web/sorisem-3.png" alt="소리샘 #3" style="width: 300px;" />
+
+- 시각장애인을 위한 정보 교류 웹 서비스 
+- 동호회, 자료실, 메일 등의 서비스 
