@@ -2,6 +2,10 @@
 // ==================================================
 @use "sass:math";
 
+$hamburger-layer-width: 36px !default;
+$hamburger-layer-height: 3px !default;
+$hamburger-layer-spacing: 7px !default;
+
 .hamburger {
   padding: $hamburger-padding-y $hamburger-padding-x;
   display: inline-block;
