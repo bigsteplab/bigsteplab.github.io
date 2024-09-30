@@ -1,4 +1,4 @@
-baseurl: '/'
+baseurl: 'https://bigsteplab.github.io'
 permalink: pretty
 title: 'BigStep Lab'
 
